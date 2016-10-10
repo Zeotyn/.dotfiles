@@ -39,6 +39,7 @@ alias gl='git lg'
 
 # Other
 alias reloadzsh='source ~/.zshrc'
+eval "$(rbenv init -)"
 
 . `brew --prefix`/etc/profile.d/z.sh
 

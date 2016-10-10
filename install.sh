@@ -34,11 +34,13 @@ while true; do
           /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
           # Installs
-          sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+          git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
           brew install tmux
           brew install zsh-syntax-highlighting
           brew install reattach-to-user-namespace
           brew install z
+          sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+          git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 break;;
         [Nn] ) exit;;
         * ) echo "Please answer yes or no.";;
