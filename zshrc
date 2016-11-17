@@ -1,12 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export EDITOR='subl -w'
 alias sub="subl"
 ZSH_THEME="spaceship"
 
 plugins=(ruby zsh-syntax-highlighting)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:~/bin:$GOPATH/bin"
+#export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:~/bin:$GOPATH/bin"
+export PATH=$PATH:~/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,12 +40,7 @@ alias gl='git lg'
 # Other
 alias reloadzsh='source ~/.zshrc'
 
-# Phraseapp
-alias sub='subl'
-
-
 . `brew --prefix`/etc/profile.d/z.sh
-eval $(docker-machine env default)
 
 # PROMPT
 SPACESHIP_PROMPT_SYMBOL='➔'

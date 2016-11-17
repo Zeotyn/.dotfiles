@@ -33,12 +33,12 @@ Plugin 'slim-template/vim-slim'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 "Plugin 'HTML-AutoCloseTag''
 "Plugin 'godlygeek/tabular'
@@ -80,14 +80,14 @@ set laststatus=2
 set tw=0
 set history=10000
 set expandtab
-syntax on 
+syntax on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
 set grepprg=ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
-set vb 
+set vb
 
 " ----- Mapping Settings ----------------------------------------------
 map <Left> <Nop>
@@ -123,7 +123,7 @@ set laststatus=2
 " Open/close NERDTree Tabs with \t
 " nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 " To have NERDTree always open on startup
-let g:nerdtree_tabs_open_on_console_startup = 0 
+let g:nerdtree_tabs_open_on_console_startup = 0
 
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
@@ -151,7 +151,7 @@ hi clear SignColumn
 let g:airline#extensions#hunks#non_zero_only = 1
 
 " ----- Tmux ------------------------------
-let g:tmux_navigator_no_mappings = 0 
+let g:tmux_navigator_no_mappings = 0
 
 nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
 nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>

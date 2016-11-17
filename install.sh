@@ -30,10 +30,15 @@ while true; do
     read -p "Do you wish to install this program?" yn
     case $yn in
         [Yy]* )
+          # Brew install
+          /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
           # Installs
-          brew install tmux
-          brew install z
           sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+          brew install tmux
+          brew install zsh-syntax-highlighting
+          brew install reattach-to-user-namespace
+          brew install z
 break;;
         [Nn] ) exit;;
         * ) echo "Please answer yes or no.";;
