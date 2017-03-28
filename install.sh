@@ -37,6 +37,7 @@ while true; do
           git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
           brew install tmux
           brew install zsh-syntax-highlighting
+          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
           brew install reattach-to-user-namespace
           brew install z
           sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
