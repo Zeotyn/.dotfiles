@@ -25,7 +25,7 @@ ln -s ${BASEDIR}/zshrc ~/.zshrc
 ln -s ${BASEDIR}/vimrc ~/.vimrc
 ln -s ${BASEDIR}/tmux.conf ~/.tmux.conf
 ln -s ${BASEDIR}/gitconfig ~/.gitconfig
-rm ${BASEDIR}/gitconfig
+
 while true; do
     read -p "Do you wish to install this program?" yn
     case $yn in
