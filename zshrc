@@ -4,7 +4,7 @@ export EDITOR='subl -w'
 alias sub="subl"
 ZSH_THEME="spaceship"
 
-plugins=(ruby zsh-syntax-highlighting)
+plugins=(ruby zsh-syntax-highlighting zsh-autosuggestions)
 
 # User configuration
 #export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:~/bin:$GOPATH/bin"
@@ -36,6 +36,7 @@ alias gc='git commit'
 alias gr='git rebase'
 alias gd='git diff'
 alias gl='git lg'
+alias gitdeletebranches='git fetch -p && for branch in `git branch -vv | grep ": gone]" | awk "{print $1}"`; do git branch -D $branch; done'
 
 # Other
 alias reloadzsh='source ~/.zshrc'
@@ -44,26 +45,26 @@ eval "$(rbenv init -)"
 . `brew --prefix`/etc/profile.d/z.sh
 
 # PROMPT
-SPACESHIP_PROMPT_SYMBOL='➔'
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
+# SPACESHIP_CHAR_SYMBOL='➔ '
+# SPACESHIP_PROMPT_ADD_NEWLINE=true
+# SPACESHIP_PROMPT_SEPARATE_LINE=true
 
-# GIT
-SPACESHIP_GIT_SHOW=true
-SPACESHIP_GIT_UNCOMMITTED='+'
-SPACESHIP_GIT_UNSTAGED='!'
-SPACESHIP_GIT_UNTRACKED='?'
-SPACESHIP_GIT_STASHED='$'
-SPACESHIP_GIT_UNPULLED='⇣'
-SPACESHIP_GIT_UNPUSHED='⇡'
+# # GIT
+# SPACESHIP_GIT_SHOW=true
+# SPACESHIP_GIT_UNCOMMITTED='+'
+# SPACESHIP_GIT_UNSTAGED='!'
+# SPACESHIP_GIT_UNTRACKED='?'
+# SPACESHIP_GIT_STASHED='$'
+# SPACESHIP_GIT_UNPULLED='⇣'
+# SPACESHIP_GIT_UNPUSHED='⇡'
 
-# NVM
-SPACESHIP_NVM_SHOW=true
-SPACESHIP_NVM_SYMBOL='⬢'
+# # NVM
+# SPACESHIP_NVM_SHOW=true
+# SPACESHIP_NVM_SYMBOL='⬢'
 
-# RUBY
-SPACESHIP_RUBY_SHOW=true
-SPACESHIP_RUBY_SYMBOL='💎'
+# # RUBY
+# SPACESHIP_RUBY_SHOW=true
+# SPACESHIP_RUBY_SYMBOL='💎'
 
-# VENV
-SPACESHIP_VENV_SHOW=true
+# # VENV
+# SPACESHIP_VENV_SHOW=true
