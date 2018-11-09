@@ -1,33 +1,80 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export EDITOR='subl -w'
-alias sub="subl"
+
+# Theme for shell
+# looking in ~/.oh-my-zsh/themes/
 ZSH_THEME="spaceship"
 
-plugins=(ruby zsh-syntax-highlighting zsh-autosuggestions)
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=3
 
-# User configuration
-#export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/usr/local/MacGPG2/bin:~/bin:$GOPATH/bin"
-export PATH=$PATH:~/bin
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  brew
+  yarn
+  extract
+)
 
 source $ZSH/oh-my-zsh.sh
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
 
-# Exports
-export GOPATH=$HOME/go
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
-# Aliases
-# Rails
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# Easteregg
-alias nice='echo "Yes, I know Eugene."'
-# Easteregg
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-alias postgres.server="postgres -D /usr/local/var/postgres"
-alias be='bundle exec'
-alias ber='bundle exec rake'
-alias bes='bundle exec rspec'
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 # Git
 alias gs='git status'
@@ -36,35 +83,7 @@ alias gc='git commit'
 alias gr='git rebase'
 alias gd='git diff'
 alias gl='git lg'
-alias gitdeletebranches='git fetch -p && for branch in `git branch -vv | grep ": gone]" | awk "{print $1}"`; do git branch -D $branch; done'
 
-# Other
+# ZSH 
 alias reloadzsh='source ~/.zshrc'
-eval "$(rbenv init -)"
-
 . `brew --prefix`/etc/profile.d/z.sh
-
-# PROMPT
-# SPACESHIP_CHAR_SYMBOL='➔ '
-# SPACESHIP_PROMPT_ADD_NEWLINE=true
-# SPACESHIP_PROMPT_SEPARATE_LINE=true
-
-# # GIT
-# SPACESHIP_GIT_SHOW=true
-# SPACESHIP_GIT_UNCOMMITTED='+'
-# SPACESHIP_GIT_UNSTAGED='!'
-# SPACESHIP_GIT_UNTRACKED='?'
-# SPACESHIP_GIT_STASHED='$'
-# SPACESHIP_GIT_UNPULLED='⇣'
-# SPACESHIP_GIT_UNPUSHED='⇡'
-
-# # NVM
-# SPACESHIP_NVM_SHOW=true
-# SPACESHIP_NVM_SYMBOL='⬢'
-
-# # RUBY
-# SPACESHIP_RUBY_SHOW=true
-# SPACESHIP_RUBY_SYMBOL='💎'
-
-# # VENV
-# SPACESHIP_VENV_SHOW=true

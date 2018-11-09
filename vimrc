@@ -20,9 +20,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 
-" ----- go vim -----------------------------------------------
-Plugin 'fatih/vim-go'
-
 " ----- man pages, tmux -----------------------------------------------
 Plugin 'benmills/vimux'
 Plugin 'edkolev/tmuxline.vim'
@@ -31,8 +28,6 @@ Plugin 'edkolev/tmuxline.vim'
 Plugin 'tpope/vim-markdown'
 Plugin 'slim-template/vim-slim'
 Plugin 'elzr/vim-json'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'cakebaker/scss-syntax.vim'
 " Plugin 'Valloric/YouCompleteMe'
 
 " Track the engine.
