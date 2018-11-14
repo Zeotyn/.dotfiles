@@ -44,15 +44,24 @@ while true; do
           # Brew install
           /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+          git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+          chsh -s /bin/zsh
+
+          git clone https://github.com/powerline/fonts.git --depth=1
+          cd fonts
+          ./install.sh
+          cd ..
+          rm -rf fonts
+
           # Installs
           git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
           brew install tmux
-          brew install zsh-syntax-highlighting
-          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+          git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+          git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
           brew install reattach-to-user-namespace
           brew install z
-          sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-          git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+          
 
           brew install rbenv
           rbenv install
@@ -72,18 +81,19 @@ while true; do
           brew cask install keybase
           brew cask install visual-studio-code
           brew cask install spotify
-          
-          reloadzsh
+          # Theme
+          git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+          ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+
+          # Vim
+          vim +PluginInstall +qall
+
+          source ~/.zshrc          
 break;;
         [Nn] ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
-# Theme
-curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh
 
-# Vim
-vim +PluginInstall +qall
-
-source ~/.zshrc

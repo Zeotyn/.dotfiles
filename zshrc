@@ -76,14 +76,6 @@ fi
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
-# Git
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gr='git rebase'
-alias gd='git diff'
-alias gl='git lg'
-
 # ZSH 
 alias reloadzsh='source ~/.zshrc'
 . `brew --prefix`/etc/profile.d/z.sh
