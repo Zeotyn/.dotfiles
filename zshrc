@@ -44,6 +44,8 @@ plugins=(
   brew
   yarn
   extract
+  bundler
+  fastlane
 )
 
 source $ZSH/oh-my-zsh.sh
