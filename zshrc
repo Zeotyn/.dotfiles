@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/opt/zeotyn:$HOME/.tmux/plugins/tmuxifier/bin:$PATH
+
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -38,14 +39,20 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  docker
+  docker-compose
+  kubectl
+  helm
+  colored-man-pages
+  rust
   git
+  sdk
+  oc
   zsh-syntax-highlighting
   zsh-autosuggestions
   brew
-  yarn
   extract
-  bundler
-  fastlane
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -63,21 +70,60 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # ZSH 
 alias reloadzsh='source ~/.zshrc'
 . `brew --prefix`/etc/profile.d/z.sh
+ eval "$(nodenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ALIAS
+alias cat='bat'
+alias vim='nvim'
+alias lg='lazygit'
+alias java17='~/.sdkman/candidates/java/17.0.6-tem/bin/java'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval $(thefuck --alias)
+
+typeset -U fpath  # Optinal for oh-my-zsh users
+fpath=(~/.zsh/oc $fpath)
+autoload -U compinit
+compinit -i
+
+# CUSTOM FUNCTION
+kdigit () {
+  find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} "$@" \;
+}
+
+gopen () {
+  git remote -v | awk '/origin.*push/ {print $2}' | xargs open
+}
+
+oc_logs() {
+     local pod_name
+     pod_name=$(oc get pods --no-headers -o custom-columns=":metadata.name" --field-selector="status.phase=Running" | fzf --ansi)
+ 
+     oc logs -f $pod_name
+}
+
+oc_rsh() {
+     local pod_name
+     pod_name=$(oc get pods --no-headers -o custom-columns=":metadata.name" --field-selector="status.phase=Running" | fzf --ansi)
+ 
+     oc rsh $pod_name
+}
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+export KUBECONFIG=~/.kube/config:~/.kube/kubeconfig_mlops
+
+eval "$(tmuxifier init -)"
+export EDITOR=nvim

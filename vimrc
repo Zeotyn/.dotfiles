@@ -9,41 +9,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-" ----- Making Vim look good ------------------------------------------
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'bling/vim-airline'
-
-" ----- Vim as a programmer's text editor -----------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-
-" ----- man pages, tmux -----------------------------------------------
-Plugin 'benmills/vimux'
-Plugin 'edkolev/tmuxline.vim'
-
-" ----- Syntax plugins ------------------------------------------------
-Plugin 'tpope/vim-markdown'
-Plugin 'slim-template/vim-slim'
-Plugin 'elzr/vim-json'
-" Plugin 'Valloric/YouCompleteMe'
-
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-" Plugin 'honza/vim-snippets'
-
-"Plugin 'HTML-AutoCloseTag''
-"Plugin 'godlygeek/tabular'
-"Plugin 'ntpeters/vim-better-whitespace'
-"Plugin 'bronson/vim-trailing-whitespace'
-
-" ----- Working with Git ----------------------------------------------
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-
 call vundle#end()
 
 filetype plugin on

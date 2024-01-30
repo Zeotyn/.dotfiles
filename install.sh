@@ -44,8 +44,8 @@ while true; do
           # Brew install
           /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-          git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-          chsh -s /bin/zsh
+          # git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+          # chsh -s /bin/zsh
 
           git clone https://github.com/powerline/fonts.git --depth=1
           cd fonts
@@ -54,8 +54,8 @@ while true; do
           rm -rf fonts
 
           # Installs
-          git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-          brew install tmux
+          # git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+          # brew install tmux
 
           git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
           git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -63,31 +63,18 @@ while true; do
           brew install z
           
 
-          brew install rbenv
-          rbenv install
+          # brew install mas
+          # mas install 1333542190 # 1Password
+          # mas install 557168941 # Tweetbot
 
-          brew install pyenv
-
-          brew install mas
-          mas install 1333542190 # 1Password
-          mas install 411643860 # DaisyDisk
-          mas install 880001334 # Reeder
-          mas install 557168941 # Tweetbot
-
-          brew cask install alfred
-          brew cask install charles
-          brew cask install gitup
-          brew cask install gpg-suite
-          brew cask install keybase
-          brew cask install visual-studio-code
-          brew cask install spotify
+          # brew cask install gitup
           # Theme
           git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
           ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 
           # Vim
-          vim +PluginInstall +qall
+          # vim +PluginInstall +qall
 
           source ~/.zshrc          
 break;;
