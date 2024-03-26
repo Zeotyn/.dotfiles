@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:/opt/zeotyn:$HOME/.tmux/plugins/tmuxifier/bin:$PATH
-
+export PATH=/opt/homebrew/bin:$HOME/.cargo/bin:/opt/zeotyn:$HOME/.tmux/plugins/tmuxifier/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -52,7 +51,9 @@ plugins=(
   zsh-autosuggestions
   brew
   extract
+  npm
   sudo
+  gradle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,21 +104,13 @@ kdigit () {
 }
 
 gopen () {
-  git remote -v | awk '/origin.*push/ {print $2}' | xargs open
+    git remote -v | awk '/origin.*\(fetch\)/ {print $2}' | awk -F'git@|\\.git' '{gsub(":", "/", $2); print "https://" $2}' | xargs open 
 }
 
-oc_logs() {
-     local pod_name
-     pod_name=$(oc get pods --no-headers -o custom-columns=":metadata.name" --field-selector="status.phase=Running" | fzf --ansi)
- 
-     oc logs -f $pod_name
+gsopen() {
+    git submodule foreach git remote -v | awk '/origin.*\(fetch\)/ {print $2}' | awk -F'git@|\\.git' '{gsub(":", "/", $2); print "https://" $2}' | fzf | xargs open
 }
 
-oc_rsh() {
-     local pod_name
-     pod_name=$(oc get pods --no-headers -o custom-columns=":metadata.name" --field-selector="status.phase=Running" | fzf --ansi)
- 
-     oc rsh $pod_name
 }
 
 autoload -U +X bashcompinit && bashcompinit
